@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Code Master — Dashboard</title>
+
+  <!-- Google Font + Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="design/in_styles.css" />
+</head> 
+ <!-- view cours dynamic function  -->
+<script>
+  function buyCourse(courseName) {
+    const courseMap = {
+      "C Programming Fundamentals": "c-course.html",
+      "Complete Java Development": "java-course.html",
+      "Modern JavaScript Mastery": "javascript-course.html"
+    };
+    window.location.href = courseMap[courseName];
+  }
+</script>
+<body>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container header-inner">
+      <div class="logo-area">
+        <i class="fa-solid fa-book-open logo-icon"></i>
+        <span class="logo-text">Code <span class="highlight">Master</span></span>
+      </div>
+      <button id="signinBtn" class="btn-primary">Sign In</button>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero container">
+    <div class="hero-text">
+      <h1>Learn to Code, <span class="gradient-text">Master Your Future</span></h1>
+      <p>Choose from our expertly crafted courses in C, Java, JavaScript, Python, and SQL. Start your coding journey today with hands-on projects and real-world applications.</p>
+
+      <div class="stats">
+        <div class="stat">
+          <i class="fa-solid fa-user-group stat-icon"></i>
+          <div>
+            <h3 data-target="100000">0</h3>
+            <p>Students</p>
+          </div>
+        </div>
+        <div class="stat">
+          <i class="fa-solid fa-star stat-icon"></i>
+          <div>
+            <h3>4.8/5</h3>
+            <p>Rating</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800" alt="Coding Illustration" />
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- FEATURES -->
+  <section class="features container">
+    <div class="feature">
+      <i class="fa-solid fa-book-open-reader"></i>
+      <p>Courses</p>
+    </div>
+    <div class="feature">
+      <i class="fa-solid fa-chart-line"></i>
+      <p>Progress</p>
+    </div>
+    <div class="feature">
+      <i class="fa-solid fa-award"></i>
+      <p>Certificates</p>
+    </div>
+  </section>
+
+  <!-- POPULAR COURSES -->
+  <section class="courses">
+    <h2 class="section-title">Popular Courses</h2>
+
+    <div class="course-grid">
+
+      <!-- C Programming -->
+      <div class="course-card">
+        <img src="Pic/C-programming.png" alt="C Programming" class="course-image">
+        <div class="course-content">
+          <h3 class="course-title">C Programming Fundamentals</h3>
+          <p>Master the fundamentals of C programming, from basics to advanced concepts like pointers and memory management.</p>
+          <ul class="course-details">
+            <li><strong>Rating:</strong> ⭐ 4.8</li>
+            <li><strong>Students:</strong> 12,450+</li>
+            <li><strong>Duration:</strong> 8 weeks</li>
+            <li><strong>Price:</strong> ₹4,149</li>
+          </ul>
+          <button class="btn-secondary" onclick="buyCourse('C Programming Fundamentals')">View Course</button>
+        </div>
+      </div>
+
+      <!-- Java Development -->
+      <div class="course-card">
+        <img src="Pic/Java.jpg" alt="Java Development" class="course-image">
+        <div class="course-content">
+          <h3 class="course-title">Complete Java Development</h3>
+          <p>Learn Java from basics to advanced OOP concepts. Build real-world applications and projects step by step.</p>
+          <ul class="course-details">
+            <li><strong>Rating:</strong> ⭐ 4.6</li>
+            <li><strong>Students:</strong> 11,900+</li>
+            <li><strong>Duration:</strong> 9 weeks</li>
+            <li><strong>Price:</strong> ₹4,599</li>
+          </ul>
+          <button class="btn-secondary" onclick="buyCourse('Complete Java Development')">View Course</button>
+        </div>
+      </div>
+
+      <!-- JavaScript Mastery -->
+      <div class="course-card">
+        <img src="Pic/Javascript.jpg" alt="JavaScript Mastery" class="course-image">
+        <div class="course-content">
+          <h3 class="course-title">Modern JavaScript Mastery</h3>
+          <p>Master modern JavaScript including ES6+, async programming, and popular frameworks like React and Node.js.</p>
+          <ul class="course-details">
+            <li><strong>Rating:</strong> ⭐ 4.7</li>
+            <li><strong>Students:</strong> 26,800+</li>
+            <li><strong>Duration:</strong> 6 weeks</li>
+            <li><strong>Price:</strong> ₹4,999</li>
+          </ul>
+          <button class="btn-secondary" onclick="buyCourse('Modern JavaScript Mastery')">View Course</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SIGN-IN MODAL -->
+  <div id="modalOverlay" class="modal-overlay">
+    <div class="modal">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <input type="email" placeholder="Email" required />
+        <input type="password" placeholder="Password" required />
+        <button type="submit" class="btn-primary full">Login</button>
+      </form>
+      <button id="closeModal" class="close-btn">&times;</button>
+      <p class="login-link">
+        Don’t have an account? <a href="register.html">Register</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script src="js/in_script.js"></script>
+</body>
+</html>
