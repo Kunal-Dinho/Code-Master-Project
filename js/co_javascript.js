@@ -1,27 +1,35 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Basic functionality for buttons, similar to previous example.
 
+    // ✅ Try Quiz button — takes user to Python quiz page
     const tryQuizBtn = document.querySelector('.try-quiz-btn');
     if (tryQuizBtn) {
         tryQuizBtn.addEventListener('click', () => {
-            alert('Opening quiz for Modern JavaScript Mastery!');
-            // In a real application, you'd navigate to a quiz page or open a modal.
+            // Redirect to quiz page (create this file if not made yet)
+            window.location.href = "python_quiz.html";
         });
     }
 
+    // ✅ Enroll button — takes user to enrollment/checkout page
     const enrollBtn = document.querySelector('.enroll-btn');
     if (enrollBtn) {
         enrollBtn.addEventListener('click', () => {
-            alert('Proceeding to enrollment for Modern JavaScript Mastery!');
-            // In a real application, this would lead to a checkout page.
+            // Redirect to enrollment page (example: enroll.html)
+            window.location.href = "enroll.html";
         });
     }
 
-    // No specific JavaScript is needed to make the right sidebar sticky,
-    // as that's handled purely by CSS `position: sticky;` on `.sidebar-content`.
-    // The `top` value in CSS determines when it becomes sticky.
+    // ✅ Handle "View Course" navigation from Dashboard
+    window.buyCourse = function(courseName) {
+        if (courseName === "Python for Everyone") {
+            window.location.href = "python_course.html";
+        } else if (courseName === "Modern JavaScript Mastery") {
+            window.location.href = "javascript_course.html";
+        } else {
+            alert("Course not found!");
+        }
+    };
 
-    // If you needed more complex sticky behavior (e.g., stopping at a certain footer element),
-    // you would use JavaScript and an Intersection Observer API. For a simple fixed-on-scroll,
-    // CSS sticky is generally sufficient and performant.
+    // ℹ️ Note:
+    // Sticky sidebar behavior (handled by CSS) does not require JS.
 });
+
