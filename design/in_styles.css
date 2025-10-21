@@ -38,20 +38,55 @@ body {
   max-width: 1100px;
   margin: auto;
 }
+/* Logo sizing and alignment */
+:root {
+  --logo-size: 48px; /* change this to 40px / 56px etc. to resize */
+}
+
+/* Make the logo image a neat square, vertically centered with the text */
 .logo-area {
   display: flex;
-  align-items: center;
+  align-items: center; /* ensures vertical centering */
+  gap: 12px; /* space between image and text */
+}
+
+/* Logo image styling */
+.logo-img {
+  width: var(--logo-size);
+  height: var(--logo-size);
+  object-fit: cover;     /* keeps aspect ratio, fills square */
+  border-radius: 12px;   /* rounded corner like your example — use 50% for circle */
+  display: inline-block;
+  flex-shrink: 0;        /* prevents the logo from shrinking on small screens */
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+/* Adjust text next to logo */
+.logo-text {
   font-weight: 700;
-  font-size: 20px;
+  font-size: 18px; /* tune this to match the image visually */
+  line-height: 1;
 }
-.logo-icon {
-  color: var(--primary);
-  margin-right: 10px;
-  font-size: 24px;
+
+/* Optional: make the two-word brand match the color gradient better */
+.logo-text .highlight {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
+
+/* Responsive tweak: slightly shrink logo on very small screens */
+@media (max-width: 420px) {
+  :root { --logo-size: 40px; }
+  .logo-text { font-size: 16px; }
+}
+
 .highlight {
   color: var(--secondary);
 }
+
 
 /* BUTTON */
 .btn-primary {
@@ -345,4 +380,81 @@ body {
   .course-card {
     width: 90%;
   }
+}
+
+/* ---------- Modal styles (add near bottom of in_styles.css) ---------- */
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  display: none; /* show by adding .open class */
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.45);
+  z-index: 9999;
+  padding: 32px;
+}
+
+.modal-overlay.open {
+  display: flex;
+}
+
+.modal {
+  width: 360px;
+  max-width: 100%;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.15);
+  padding: 24px;
+  position: relative;
+  animation: modalPop 220ms ease;
+}
+
+@keyframes modalPop {
+  from { transform: translateY(10px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+.modal h2 {
+  font-size: 20px;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+
+.modal-form input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  border: 1px solid #e6e6e6;
+  font-size: 14px;
+}
+
+.modal-footer {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* close button */
+.close-btn {
+  position: absolute;
+  right: 12px;
+  top: 10px;
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: #777;
+}
+
+/* make primary full-width inside modal clickable */
+.btn-primary.full {
+  width: 100%;
 }

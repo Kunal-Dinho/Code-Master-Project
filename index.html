@@ -28,8 +28,8 @@
   <header class="header">
     <div class="container header-inner">
       <div class="logo-area">
-        <i class="fa-solid fa-book-open logo-icon"></i>
-        <span class="logo-text">Code <span class="highlight">Master</span></span>
+        <img class="logo-img" src="Pic/C-logo.avif" alt="Code Master" />
+        <span class="logo-text"><span class="highlight">Code Master</span></span>
       </div>
       <button id="signinBtn" class="btn-primary">Sign In</button>
     </div>
@@ -156,21 +156,28 @@
     </div>
   </section>
 
-  <!-- SIGN-IN MODAL -->
-  <div id="modalOverlay" class="modal-overlay">
-    <div class="modal">
-      <h2>Login</h2>
-      <form id="loginForm">
-        <input type="email" placeholder="Email" required />
-        <input type="password" placeholder="Password" required />
-        <button type="submit" class="btn-primary full">Login</button>
-      </form>
-      <button id="closeModal" class="close-btn">&times;</button>
-      <p class="login-link">
-        Don’t have an account? <a href="register.html">Register</a>
-      </p>
-    </div>
+  <!-- SIGN-IN MODAL (place this near the end of index.html, before </body>) -->
+<div id="modalOverlay" class="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal" role="document">
+    <button id="closeModal" class="close-btn" aria-label="Close sign in">&times;</button>
+
+    <h2 id="modalTitle">Sign in to Code Master</h2>
+
+    <form id="loginForm" class="modal-form" novalidate>
+      <label for="loginEmail" class="sr-only">Email</label>
+      <input id="loginEmail" type="email" placeholder="Email" required />
+
+      <label for="loginPassword" class="sr-only">Password</label>
+      <input id="loginPassword" type="password" placeholder="Password" required minlength="6" />
+
+      <button type="submit" class="btn-primary full">Sign In</button>
+    </form>
+
+    <p class="modal-footer">
+      Don’t have an account? <a href="register.html">Register</a>
+    </p>
   </div>
+</div>
 
   <!-- JS -->
   <script src="js/in_script.js"></script>
