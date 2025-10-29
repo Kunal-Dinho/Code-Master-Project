@@ -50,6 +50,6 @@ if (registerForm) {
 
     // Example success message
     alert(`Registration successful for ${email}! Redirecting to login page...`);
-    window.location.href = "login.html"; // ✅ Redirect to login page
+    window.location.href = "index.html"; // ✅ Redirect to login page
   });
 }

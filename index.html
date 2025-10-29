@@ -92,7 +92,7 @@
       <div class="course-card">
         <img src="Pic/C-programming.png" alt="C Programming" class="course-image">
         <div class="course-content">
-          <h3 class="course-title">C Programming Fundamentals</h3>
+          <h3 class="course-title">C Programming </h3>
           <p>Master the fundamentals of C programming, from basics to advanced concepts like pointers and memory management.</p>
           <ul class="course-details">
             <li><strong>Rating:</strong> ⭐ 4.8</li>
@@ -157,20 +157,20 @@
   </section>
 
   <!-- SIGN-IN MODAL (place this near the end of index.html, before </body>) -->
-<div id="modalOverlay" class="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+<div id="modalOverlay" class="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle" >
   <div class="modal" role="document">
     <button id="closeModal" class="close-btn" aria-label="Close sign in">&times;</button>
 
     <h2 id="modalTitle">Sign in to Code Master</h2>
 
-    <form id="loginForm" class="modal-form" novalidate>
+    <form id="loginForm" class="modal-form" novalidate action="connect.php" method="POST">
       <label for="loginEmail" class="sr-only">Email</label>
-      <input id="loginEmail" type="email" placeholder="Email" required />
+      <input id="loginEmail" type="email" placeholder="Email" required name="email" />
 
       <label for="loginPassword" class="sr-only">Password</label>
-      <input id="loginPassword" type="password" placeholder="Password" required minlength="6" />
+      <input id="loginPassword" type="password" placeholder="Password" required minlength="6" name="password"/>
 
-      <button type="submit" class="btn-primary full">Sign In</button>
+      <button type="submit" class="btn-primary full" name="sb">Sign In</button>
     </form>
 
     <p class="modal-footer">

@@ -6,9 +6,9 @@
 /* Expose buyCourse so inline onclick="buyCourse(...)" still works */
 window.buyCourse = function(courseName) {
   const courseMap = {
-    "C Programming Fundamentals": "c-course.html",
-    "Complete Java Development": "java-course.html",
-    "Modern JavaScript Mastery": "javascript-course.html",
+    "C Programming Fundamentals": "c-course.html",// <- added C Programiang page
+    "Complete Java Development": "java-course.html",  // <- added Java Development page
+    "Modern JavaScript Mastery": "javascript-course.html",  // <- added Javascript page
     "Python For Everyone": "python_course.html" // <- added Python page
   };
 
