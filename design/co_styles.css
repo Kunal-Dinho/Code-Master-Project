@@ -28,30 +28,206 @@ body {
   align-items: center;
 }
 
-.logo {
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: #8c31ff;
+:root {
+  --logo-size: 48px; /* change this to 40px / 56px etc. to resize */
 }
 
-.logo i {
-  color: #ff7b54;
-  margin-right: 8px;
+/* Make the logo image a neat square, vertically centered with the text */
+.logo-area {
+  display: flex;
+  align-items: center; /* ensures vertical centering */
+  gap: 12px; /* space between image and text */
+}
+
+/* Logo image styling */
+.logo-img {
+  width: var(--logo-size);
+  height: var(--logo-size);
+  object-fit: cover;     /* keeps aspect ratio, fills square */
+  border-radius: 12px;   /* rounded corner like your example — use 50% for circle */
+  display: inline-block;
+  flex-shrink: 0;        /* prevents the logo from shrinking on small screens */
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+.logo-text {
+  font-size: 18px; /* adjust size as needed */
+  font-weight: 700;
+  font-family: 'Arial', sans-serif; /* change font if needed */
+}
+
+.highlight {
+  background: linear-gradient(90deg, #9b59b6, #e67e22); /* purple to orange-pink gradient */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+
+#showSignIn {
+  background: linear-gradient(90deg, #7a5cf7 0%, #fa7b69 100%);
+  color: #fff;
+  font-weight: 600;
+  font-size: 18px;
+  border: none;
+  border-radius: 16px;
+  padding: 12px 36px;
+  box-shadow: none;
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+  outline: none;
+  text-align: center;
+  /* Position to screen right */
+  position: fixed;
+  right: 250px;       /* distance from right edge */
+  top: 1opx;          /* vertically at center-ish, adjust as needed */
+  z-index: 1000;
+}
+
+#showSignIn:hover, #showSignIn:focus {
+  box-shadow: 0 2px 12px rgba(122, 92, 247, 0.18);
+}
+
+.modal-overlay {
+  display: none; 
+  position: fixed; 
+  z-index: 9999;
+  left: 0; top: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+  width: 100vw; height: 100vh;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+  padding: 32px 24px;
+  width: 350px;
+  max-width: 90vw;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.modal-close {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.modal-content h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  font-weight: bold;
+}
+
+.modal-content input {
+  padding: 14px;
+  margin: 8px 0;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  font-size: 16px;
+  outline: none;
 }
 
 .sign-in-btn {
-  background-color: #7b2cff;
-  color: #fff;
+  background: linear-gradient(90deg, #6366f1 0%, #f43f5e 100%);
+  color: white;
   border: none;
-  padding: 8px 18px;
-  border-radius: 8px;
+  font-size: 18px;
+  margin-top: 14px;
+  padding: 12px 0;
+  border-radius: 12px;
   cursor: pointer;
-  transition: 0.3s;
 }
 
-.sign-in-btn:hover {
-  background-color: #6920e0;
+.modal-footer {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 14px;
 }
+.modal-footer a {
+  color: #6366f1;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Overlay: center modal, dim screen */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  display: none; /* show by adding .open class */
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.45);
+  z-index: 9999;
+  padding: 32px;
+}
+
+/* Modal box */
+.modal-content {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 6px 32px rgba(50,51,79,0.18);
+  padding: 32px 24px 16px;
+  width: 400px; max-width: 95vw;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Close button */
+.modal-close {
+  position: absolute; top: 20px; right: 22px;
+  font-size: 1.7rem; color: #666;
+  cursor: pointer;
+}
+.modal-close:hover { color: #f43f5e; }
+
+/* Title */
+.modal-content h2 {
+  margin: 6px 0 26px 0;
+  text-align: center;
+  font-size: 2rem; font-weight: 700; color: #222230;
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+/* Hide label visually, keep for screen readers */
+.sr-only {
+  position: absolute; left: -9999px;
+}
+
+/* Inputs */
+.modal-content input {
+  width: 100%; padding: 14px 18px; margin-bottom: 16px;
+  border: 1.5px solid #ebeef5; border-radius: 12px;
+  font-size: 1.07rem; background: #fafbfc; color: #181823;
+}
+.modal-content input:focus { border-color: #8171ee; background: #fff; }
+
+/* Sign In Button */
+.sign-in-btn {
+  width: 100%; padding: 12px 0; margin-top: 4px;
+  background: linear-gradient(90deg,#715bf8 2%,#f43f5e 100%);
+  color: #fff; font-size: 1.11rem; font-weight: 600;
+  border-radius: 16px; border: none; cursor: pointer;
+}
+.sign-in-btn:hover { opacity: 0.9; }
+
+/* Footer */
+.modal-footer {
+  margin-top: 18px; text-align: center; color: #606170;
+  font-size: 1rem; font-family: inherit;
+}
+.modal-footer a {
+  color: #716bf7; text-decoration: underline;
+}
+.modal-footer a:hover { color: #f43f5e; }
+
 
 /* Layout */
 .course-page .container {
