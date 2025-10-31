@@ -77,7 +77,7 @@ body {
   outline: none;
   text-align: center;
   /* Position to screen right */
-  position: fixed;
+  position: absolute;
   right: 250px;       /* distance from right edge */
   top: 1opx;          /* vertically at center-ish, adjust as needed */
   z-index: 1000;
